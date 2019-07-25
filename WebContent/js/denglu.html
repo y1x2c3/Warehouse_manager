@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="../css/style.min.css" />
+	</head>
+	<body>
+		<div class="dengluyemian"></div>
+		<div class="dingbu">
+			<img src="../img/中国剑桥.png" >
+			<img src="../img/gekai.png" >
+		</div>	
+		<form action="" onSubmit="return check()">
+			<div class="user">
+				<label for='um'>账号：</label>
+				<input id='um' type="username" required placeholder="--- 请输入 ---" name="username" />
+			</div>
+			<div class="password1">
+				<label for="pw">密码：</label>
+				<input id="pw" type="password" required placeholder="--- 请输入 ---" name="password" />
+			</div>
+			<div class="denglu">
+				<button type="submit" >登陆</button>
+				<!--<button type="submit" onclick="return check(this.form);">登陆</button>-->
+			</div>
+			<div id="CheckMsg" class="msg"></div>
+			<div class="jzmm">
+				<input type="checkbox"id="jizhumima" /><span>记住密码</span>
+			</div>
+			<div class="dengluyuzhuce">
+				<a href="zhuce.html">注册</a>
+				<span> | </span>
+				<a href="#">忘记密码</a>
+			</div>
+		</form>	
+	</body>
+	<script type="text/javascript" src="js/mimayanzheng.js" ></script>
+	<script type="text/javascript">
+    function check(){
+
+      var test = document.getElementById("um").value;
+      if (test.length > 4 ) {
+        alert("请输入正确的账号");
+        document.getElementById("um").focus();
+        return false;
+      }
+
+      var password = document.getElementById("pw").value;
+      if (password.length<6) {
+         var reg = /[a-zA-Z](?=.*?[1-9].*?)[a-zA-Z1-9]+|[1-9](?=.*?[a-zA-Z].*?)[a-zA-Z1-9]+/g;
+         isok= reg.test(password);
+           if (!isok) {
+                alert("密码格式不正确，请重新输入！");
+                document.getElementById("pw").focus();
+                return false;
+            }
+        }
+        return true;
+    }
+	</script>
+</html>
